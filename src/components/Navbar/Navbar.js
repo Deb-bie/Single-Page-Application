@@ -1,26 +1,61 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Navbar.css';
 import { Link as LinkR } from "react-router-dom";
+import { Link as LinkS, animateScroll as scroll } from "react-scroll";
 import {FaBars, FaTimes} from 'react-icons/fa';
 import {MdFingerprint } from 'react-icons/md';
+
+import { IconContext } from "react-icons/lib";
+
+import Hero from '../pages/Hero/Hero';
+import About from '../About/About';
+import Services from '../pages/Services/Services';
+import Discovery from '../pages/Discovery/Discovery';
+import Footer from '../pages/Footer/Footer';
+
+
 
 
 function Navbar() {
 
     const [click, setClick] = useState(false);
 
-    const handleClick = () => setClick(!click)
+    const handleClick = () => setClick(!click);
+
+    const [scrollNav, setScrollNav] = useState(false);
+
+    const changeNav = () => {
+        if (window.scrollY >=80) {
+            setScrollNav(true)
+        } else {
+            setScrollNav(false)
+        }
+    }
+
+    useEffect(() => {
+        window.addEventListener('scroll', changeNav)
+    }, []);
+
+
+    const toggleHome = () => {
+        scroll.scrollToTop();
+    }
 
 
 
 
     return (
-        <nav className="navbar">
+        <>
+
+        {/* <IconContext.Provider value={{ color: '#fff'}}> */}
+
+
+        <nav className="navbar" scrollNav={scrollNav }>
             <div className="navbar-container">
-                <LinkR to='/' className="navbar-logo">
+                <LinkS to='home' className="navbar-logo" onClick={toggleHome}>
                     Zubi
                     <MdFingerprint />
-                </LinkR>
+                </LinkS>
 
                 <div className="navbar-icon" onClick={handleClick}>
                     {click ? <FaTimes /> : <FaBars />}
@@ -28,37 +63,68 @@ function Navbar() {
 
                 <ul className={click ? "nav-menu active" : "nav-menu"}>
                     <li className="nav-item">
-                        <LinkR exact to='/' activeClass="active" className="nav-link" onClick={handleClick}>
+                        <LinkS to='home' 
+                        activeClass="active" 
+                        className="nav-link" onClick={handleClick}>
                             Home
-                        </LinkR>
+                        </LinkS>
                     </li>
 
                     <li className="nav-item">
-                        <LinkR exact to='/about' activeClass="active" className="nav-link" onClick={handleClick} >
+                        <LinkS exact to='about' 
+                        activeClass="active" className="nav-link" onClick={handleClick} 
+                        smooth={true} 
+                        duration={500} 
+                        spy={true} 
+                        exact='true' 
+                        offset={-80}
+
+                        >
                             About
-                        </LinkR>
+                        </LinkS>
                     </li>
 
                     <li className="nav-item">
-                        <LinkR exact to='/services' activeClass="active" className="nav-link" onClick={handleClick}>
+                        <LinkS exact to='services' activeClass="active" className="nav-link" onClick={handleClick} 
+                        smooth={true} 
+                        duration={500} 
+                        spy={true} 
+                        exact='true' 
+                        offset={-80} >
                             Services
-                        </LinkR>
+                        </LinkS>
                     </li>
 
                     <li className="nav-item">
-                        <LinkR exact to='/signin' activeClass="active" className="nav-link" onClick={handleClick} >
-                            Sign In
-                        </LinkR>
+                        <LinkS exact to='discovery' activeClass="active" className="nav-link" onClick={handleClick} 
+                        smooth={true} 
+                        duration={500} 
+                        spy={true} 
+                        exact='true' 
+                        offset={-80} >
+                            Discovery
+                        </LinkS>
                     </li>
                 </ul>
 
                 <div className={click ? "nav-button active" : "nav-button"}>
-                    <LinkR className="nav-btn-link" >Sign Up</LinkR>
+                    <LinkR to="/signup" className="nav-btn-link" >Sign Up</LinkR>
                 </div>
 
             </div>
 
         </nav>
+
+        {/* </IconContext.Provider> */}
+
+        <Hero />
+        <About />
+        <Services />
+        <Discovery />
+        <Footer />
+
+
+        </>
 
     )
 }
