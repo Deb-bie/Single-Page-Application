@@ -1,0 +1,245 @@
+nav{
+    background: #020705;
+    height: 80px;
+
+    /* this will make the landing page */
+    margin-bottom: -80px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.navbar-container{
+    display: flex;
+    justify-content: space-evenly;
+    height: 80px;
+    z-index: 1;
+    width: 100%;
+    padding: 0 24px;
+    max-width: 1100px;
+}
+
+.navbar-logo{
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: goldenrod;
+    justify-self: flex-start;
+    cursor: pointer;
+}
+
+
+.navbar-icon{
+    display: none;
+}
+
+
+.nav-menu{
+    display: flex;
+    list-style: none;
+    text-align: center;
+    /* margin-right: -40rem; */
+}
+
+.nav-item{
+    height: 80px;
+}
+
+
+.nav-item::after{
+    content: "";
+    display: block;
+    height: 3px;
+    width: 0;
+    background: transparent;
+    transition: width 0.7s ease, background-color 0.5s ease;
+}
+
+
+.nav-item:hover::after{
+    width: 100%;
+    background: #ffdd40;
+}
+
+
+.nav-item .active{
+    color: #ffdd40;
+    border: 1px solid #ffdd40;
+}
+
+
+.LinkR{
+    color: red;
+    justify-self: flex-start;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    margin-left: 24px;
+    font-weight: bold;
+}
+
+
+.nav-link{
+    color: #fff;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 0 1.7rem;
+    height: 100%;
+    cursor: pointer;
+}
+
+.nav-links:active{
+    border-bottom: 3px solid goldenrod;
+}
+
+
+.nav-button{
+    display: flex;
+    align-items: center;
+}
+
+
+
+button:after{
+    content: "";
+    display: block;
+    height: 3px;
+    width: 0;
+    background: transparent;
+    transition: width 0.7s ease , background-color 0.5s ease;
+}
+
+
+
+.nav-btn-link{
+    border-radius: 50px;
+    background: goldenrod;
+    white-space: nowrap;
+    padding: 14px 60px;
+    color: #010606;
+    font-size: 16px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.nav-btn-link:hover{
+    transition: all 0.6s ease-in-out;
+    color: goldenrod;
+    background: #000;
+}
+
+
+@media screen and (max-width: 960px) {
+    nav{
+        position: sticky;
+    }
+
+    .navbar-container{
+        padding: 0 65px;
+        justify-content: flex-start;
+
+    }
+
+    .nav-menu{
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+        border-top: 1px solid #000;
+        position: absolute;
+        top: 80px;
+        left: -110%;
+        opacity: 1;
+        height: 100vh;
+    }
+
+
+    .nav-menu.active{
+        background: #1f5156;
+        left: 0px;
+        opacity: 1;
+        z-index: 1;
+    }
+
+
+    .nav-item{
+        margin-bottom: 1rem;
+        display: flex;
+        justify-content: center;
+        
+    }
+
+
+    .nav-item .active{
+        color: #ffdd40;
+        border: none;
+    }
+
+
+    .navbar-icon{
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(-100%, 60%);
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: #ffdd40;
+    }
+
+
+    .nav-link{
+        justify-content: center;
+    }
+
+
+
+    .nav-button{
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+        border-top: 1px solid #000;
+        position: absolute;
+        top: 80px;
+        left: -110%;
+        opacity: 1;
+    }
+
+
+    .nav-button.active{
+        border-block-color: transparent;
+        background: #1f5156;
+        top: 583px;
+        left: 0px;
+        opacity: 1;
+        z-index: 1;
+    }
+
+
+    button{
+        margin-bottom: 1rem;
+        display: flex;
+        justify-content: center;
+        
+    }
+
+
+    .nav-btn-link{
+        margin-bottom: 1rem;
+        display: flex;
+    }
+
+    
+
+}
+
