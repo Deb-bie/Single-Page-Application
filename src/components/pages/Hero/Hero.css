@@ -78,7 +78,7 @@
 }
 
 
-.button{
+.hero-btn{
     margin-top: 32px;
     display: flex;
     flex-direction: column;
@@ -86,7 +86,7 @@
 }
 
 
-button{
+.button{
     border-radius: 50px;
     background: #01BF71;
     white-space: nowrap;
@@ -99,9 +99,11 @@ button{
     justify-content: center;
     align-items: center;
     transition: all 0.2s ease-in-out;
+    text-decoration: none;
+    color: #010606;
 }
 
-button:hover{
+.button:hover{
     transition: all 0.2s ease-in-out;
     background: #fff;
 }
