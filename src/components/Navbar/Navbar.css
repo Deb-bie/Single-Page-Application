@@ -31,6 +31,17 @@ nav{
     color: goldenrod;
     justify-self: flex-start;
     cursor: pointer;
+
+/* 
+    color: red;
+    justify-self: flex-start;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    margin-left: 24px;
+    font-weight: bold; */
 }
 
 
@@ -69,21 +80,9 @@ nav{
 
 .nav-item .active{
     color: #ffdd40;
-    border: 1px solid #ffdd40;
+    border-bottom: 5px solid #ffdd40;
 }
 
-
-.LinkR{
-    color: red;
-    justify-self: flex-start;
-    text-decoration: none;
-    cursor: pointer;
-    font-size: 1.5rem;
-    display: flex;
-    align-items: center;
-    margin-left: 24px;
-    font-weight: bold;
-}
 
 
 .nav-link{
@@ -96,7 +95,20 @@ nav{
     cursor: pointer;
 }
 
-.nav-links:active{
+
+/* LinkS{
+    color: #fff;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 0 1.7rem;
+    height: 100%;
+    cursor: pointer;
+} */
+
+
+
+.nav-link:active{
     border-bottom: 3px solid goldenrod;
 }
 
@@ -143,6 +155,7 @@ button:after{
 @media screen and (max-width: 960px) {
     nav{
         position: sticky;
+        /* background: transparent; */
     }
 
     .navbar-container{
