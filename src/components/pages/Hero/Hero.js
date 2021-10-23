@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import video from '../../videos/video.mp4';
-import "./Hero.css"
+import "./Hero.css";
+import { FaArrowRight } from 'react-icons/fa';
+import { MdArrowForward } from 'react-icons/md';
+import { Link as LinkR} from "react-router-dom";
 
 
 
 function Hero() {
+
+    const [hover, setHover] = useState(false);
+
+    const handleHover = () => {setHover(!hover)};
+
+
     return (
         <div className="main-container" id="home">
             <div className="main-background">
@@ -22,10 +31,11 @@ function Hero() {
                     your next payment.
                 </p>
 
-                <div className="button">
-                    <button>
-                        Get Started
-                    </button>
+                <div className="hero-btn">
+                    <LinkR className="button" to="signup" onMouseEnter={handleHover} onMouseLeave={handleHover}>
+                        Get Started &nbsp; &nbsp; 
+                        {hover ? <MdArrowForward /> : <FaArrowRight />}
+                    </LinkR>
                 </div>
             </div>
             
