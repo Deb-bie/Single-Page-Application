@@ -119,7 +119,6 @@ nav{
 }
 
 
-
 button:after{
     content: "";
     display: block;
@@ -176,13 +175,13 @@ button:after{
         height: 100vh;
     }
 
-
-    .nav-menu.active{
+/* 
+    .nav-menu .active{
         background: #1f5156;
         left: 0px;
         opacity: 1;
         z-index: 1;
-    }
+    } */
 
 
     .nav-item{
